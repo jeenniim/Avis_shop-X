@@ -1,3 +1,5 @@
-Flask 
-Requests
+flask
 gunicorn
+python-dotenv
+python-telegram-bot
+requests
