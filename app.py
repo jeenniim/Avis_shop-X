@@ -2,7 +2,7 @@ from flask import Flask, request, render_template_string
 import os
 import requests
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 # --- SETTINGS ---
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
@@ -45,5 +45,5 @@ def home():
         return ORDER_HTML
     return HTML
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run()
