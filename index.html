@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kevin's Jerseys</title>
+<style>
+body{font-family:-apple-system,sans-serif;margin:0;background:#f5f5f7}
+.hero{width:100%;height:280px;background:#111 url('banner.jpg') center/cover;display:flex;align-items:end;justify-content:center}
+.hero h1{background:rgba(0,0,0,0.7);color:white;padding:12px 20px;border-radius:10px;margin:20px;font-size:22px;text-align:center}
+.card{max-width:480px;margin:-30px auto 20px;background:white;padding:25px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,0.1)}
+label{font-weight:600;display:block;margin-top:15px}
+input,select{width:100%;padding:14px;margin-top:6px;border:1.5px solid #ddd;border-radius:10px;font-size:16px;box-sizing:border-box}
+button{width:100%;padding:15px;background:#111;color:white;border:none;border-radius:12px;font-size:17px;font-weight:700;margin-top:22px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="hero"><h1>Welcome to Kevin's Jerseys<br><span style="font-size:14px;font-weight:400;">Original Jersey Plug • 100% Authentic</span></h1></div>
+<div class="card">
+<label>🏷️ Name you want on jersey</label>
+<input id="jerseyName" placeholder="e.g. KEVIN">
+<label>🔢 Jersey number (1-99)</label>
+<input id="jerseyNumber" type="number" min="1" max="99" placeholder="e.g. 7">
+<label>📏 Size</label>
+<select id="jerseySize"><option value="">Select size</option><option>Small</option><option>Medium</option><option>Large</option><option>XL</option><option>XXL</option></select>
+<button onclick="goPage2()">Continue →</button>
+<p style="font-size:12px;color:gray;text-align:center">Page 1 of 2</p>
+</div>
+<script>
+function goPage2(){
+ const n=document.getElementById('jerseyName').value.trim();
+ const num=document.getElementById('jerseyNumber').value.trim();
+ const s=document.getElementById('jerseySize').value;
+ if(!n||!num||!s){alert('Fill all');return;}
+ if(num<1||num>99){alert('Number 1-99');return;}
+ localStorage.setItem('jerseyName',n); localStorage.setItem('jerseyNumber',num); localStorage.setItem('jerseySize',s);
+ location.href='page2.html';
+}
+</script>
+</body>
+</html>
